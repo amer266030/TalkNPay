@@ -27,8 +27,11 @@ struct NavigationCoordinator: View {
         // Landing Screens
         case .splash: SplashView()
         case .welcome: WelcomeView()
-        case .onboarding: OnboardingView()
         case .home: HomeView()
+        case .bills: EmptyView()
+        case .billDetails: EmptyView()
+        case .paymentConfirmation: EmptyView()
+        case .transactions: EmptyView()
         }
     }
 }

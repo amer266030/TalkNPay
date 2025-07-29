@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Bindable var vm = HomeVM()
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
             BGView()
@@ -18,7 +20,7 @@ struct HomeView: View {
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
-                Text("Talk N Pay")
+                Text("Home")
                     .font(.title)
                     .font(.headline)
                     .fontWeight(.semibold)

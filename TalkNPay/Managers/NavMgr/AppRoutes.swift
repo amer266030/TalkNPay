@@ -11,6 +11,9 @@ import SwiftUI
 enum AppRoute: Hashable {
     case splash
     case welcome
-    case onboarding
     case home
+    case bills
+    case billDetails
+    case paymentConfirmation
+    case transactions
 }
