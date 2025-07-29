@@ -1,0 +1,16 @@
+//
+//  AppRoutes.swift
+//  TalkNPay
+//
+//  Created by Amer Alyusuf on 29/07/2025.
+//
+
+import SwiftUI
+
+/// Enum representing all routes in the app
+enum AppRoute: Hashable {
+    case splash
+    case welcome
+    case onboarding
+    case home
+}
