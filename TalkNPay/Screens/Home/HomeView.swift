@@ -9,10 +9,28 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .topLeading) {
+            BGView()
+            VStack(alignment: .leading, spacing: 16) {
+                Text("Home")
+            }
+            .padding(24)
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Text("Talk N Pay")
+                    .font(.title)
+                    .font(.headline)
+                    .fontWeight(.semibold)
+            }
+        }
     }
 }
 
 #Preview {
-    HomeView()
+    let x = DIContainer.shared
+    ContentView()
+        .onAppear {
+            x.navMgr.push(.home)
+        }
 }

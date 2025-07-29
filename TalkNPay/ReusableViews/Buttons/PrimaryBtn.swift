@@ -12,7 +12,7 @@ struct PrimaryBtn: View {
     
     var title: LocalizedStringKey
     var backgroundColor: AnyGradient = Color.blue.gradient
-    var foregroundColor: Color = Color.black
+    var foregroundColor: Color = Color.white
     var borderColor: Color = .clear
     var animation: Animation = .easeOut(duration: 0.5)
     var isEnabled: Bool = true
@@ -28,8 +28,8 @@ struct PrimaryBtn: View {
                         .lineLimit(1)
                         .minimumScaleFactor(0.7)
                 }
-                .padding()
-                .padding(.horizontal, 8)
+                .padding(.vertical, 16)
+                .padding(.horizontal, 32)
             }
             .opacity(animate ? 1 : 0)
             .foregroundStyle(isEnabled ? foregroundColor : .gray)
