@@ -41,7 +41,7 @@ struct BillsView: View {
                                 Section("Paid") {
                                     ForEach(vm.paidBills) { bill in
                                         BillCardView(bill: bill) {
-                                            
+                                            vm.navigateToDetails(for: bill)
                                         }
                                     }
                                 }

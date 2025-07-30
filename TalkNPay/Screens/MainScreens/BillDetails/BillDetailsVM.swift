@@ -11,9 +11,14 @@ import Observation
 class BillDetailsVM {
     private let x = DIContainer.shared
     
-    @MainActor
-    func navigateToBills() {
-        x.navMgr.push(.bills)
+    var bill: Bill
+    
+    init(bill: Bill) {
+        self.bill = bill
+    }
+    
+    func initiatePayment() {
+        
     }
     
 }

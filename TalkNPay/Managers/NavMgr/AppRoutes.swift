@@ -13,7 +13,7 @@ enum AppRoute: Hashable {
     case welcome
     case home
     case bills
-    case billDetails
+    case billDetails(bill: Bill)
     case paymentConfirmation
     case transactions
 }

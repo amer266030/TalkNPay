@@ -29,7 +29,7 @@ struct NavigationCoordinator: View {
         case .welcome: WelcomeView()
         case .home: HomeView()
         case .bills: BillsView()
-        case .billDetails: BillDetailsView()
+        case .billDetails(let bill): BillDetailsView(vm: BillDetailsVM(bill: bill))
         case .paymentConfirmation: PaymentConfirmationView()
         case .transactions: TransactionsView()
         }

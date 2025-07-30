@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Bill: Identifiable, Codable, Equatable {
+struct Bill: Identifiable, Codable, Equatable, Hashable {
     let id: UUID
-    let provider: String            // e.g., "UtilityPay" or "TelecomPay"
+    let provider: String
     let accountNumber: String
-    let description: String         // e.g., "Water Bill", "Internet Bill"
+    let description: String
     let amount: Double
     let dueDate: Date
     var isPaid: Bool

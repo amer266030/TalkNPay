@@ -22,7 +22,7 @@ class BillsVM {
     
     @MainActor
     func navigateToDetails(for bill: Bill) {
-        x.navMgr.push(.billDetails)
+        x.navMgr.push(.billDetails(bill: bill))
     }
     
 }
