@@ -11,9 +11,14 @@ import Observation
 class PaymentConfirmationVM {
     private let x = DIContainer.shared
     
-    @MainActor
-    func navigateToBills() {
-        x.navMgr.push(.bills)
+    var bill: Bill
+    
+    init(bill: Bill) {
+        self.bill = bill
     }
     
+    @MainActor
+    func navigateToHome() {
+        x.navMgr.replaceWith(.home)
+    }
 }

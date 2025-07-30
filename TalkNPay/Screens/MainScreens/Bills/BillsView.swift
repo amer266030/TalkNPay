@@ -22,7 +22,7 @@ struct BillsView: View {
                 if vm.bills.isEmpty {
                     ContentUnavailableView(
                         "No Bills",
-                        image: "exclamationmark.triangle.fill",
+                        systemImage: "exclamationmark.triangle.fill",
                         description: Text("You're all caught up! No outstanding or paid bills to show.")
                     )
                 } else {
@@ -63,6 +63,7 @@ struct BillsView: View {
             ToolbarItem(placement: .principal) {
                 Text("Bills")
                     .font(.headline)
+                    .foregroundStyle(.white)
             }
         }
         .onAppear { Task { await vm.loadBills() } }

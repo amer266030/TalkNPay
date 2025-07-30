@@ -11,9 +11,21 @@ import Observation
 class TransactionsVM {
     private let x = DIContainer.shared
     
+    var transactions: [Transaction] = []
+    
     @MainActor
-    func navigateToBills() {
-        x.navMgr.push(.bills)
+    func fetchTrasnactions() async {
+        transactions = x.mockData.transactions.list
+    }
+    
+    @MainActor
+    func navigateToHome() {
+        x.navMgr.pop()
+    }
+    
+    @MainActor
+    func navigateToTransactionDetails(transaction: Transaction) {
+        x.navMgr.push(.transactionDetails(transaction: transaction))
     }
     
 }

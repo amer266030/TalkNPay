@@ -11,9 +11,9 @@ extension MockData {
     func fetchBills() -> Bills {
         let bill1 = Bill(
             id: UUID(),
-            provider: "UtilityPay",
+            provider: "Telecom",
             accountNumber: "1234567890",
-            description: "Water Bill - November",
+            description: "Internet Bill - November",
             amount: 120.50,
             dueDate: Calendar.current.date(byAdding: .day, value: 5, to: Date())!,
             isPaid: false
@@ -21,15 +21,25 @@ extension MockData {
         
         let bill2 = Bill(
             id: UUID(),
-            provider: "TelecomPay",
+            provider: "Water",
             accountNumber: "0987654321",
-            description: "Internet Bill - November",
+            description: "Water Bill - November",
+            amount: 199.99,
+            dueDate: Calendar.current.date(byAdding: .day, value: 10, to: Date())!,
+            isPaid: false
+        )
+        
+        let bill3 = Bill(
+            id: UUID(),
+            provider: "Electricity",
+            accountNumber: "0987654333",
+            description: "Electric Bill - November",
             amount: 199.99,
             dueDate: Calendar.current.date(byAdding: .day, value: 10, to: Date())!,
             isPaid: true
         )
         
-        return Bills(list: [bill1, bill2])
+        return Bills(list: [bill1, bill2, bill3])
     }
     
     func fetchPayments() -> Payments {

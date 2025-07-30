@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BillDetailsView: View {
     @Bindable var vm: BillDetailsVM
+    @State private var hasStartedPayment = false
     
     var body: some View {
         ZStack {
@@ -16,7 +17,6 @@ struct BillDetailsView: View {
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    
                     VStack(alignment: .leading, spacing: 16) {
                         HStack {
                             Text(vm.bill.provider)
@@ -46,11 +46,25 @@ struct BillDetailsView: View {
                     
                     if !vm.bill.isPaid {
                         PrimaryBtn(title: "Pay Now") {
-                            vm.initiatePayment()
+                            if vm.bill.isPaid == true {
+                                vm.showBillPaidAlert()
+                            } else {
+                                Task { await vm.initiatePayment() }
+                            }
                         }
                     }
                 }
                 .padding(24)
+            }
+        }
+        .onAppear {
+            if vm.provider != nil && !hasStartedPayment {
+                if vm.bill.isPaid == true {
+                    vm.showBillPaidAlert()
+                } else {
+                    hasStartedPayment = true
+                    Task { await vm.initiatePayment() }
+                }
             }
         }
         .toolbar {
@@ -60,6 +74,7 @@ struct BillDetailsView: View {
             ToolbarItem(placement: .principal) {
                 Text("Bill Details")
                     .font(.headline)
+                    .foregroundStyle(.white)
             }
         }
     }

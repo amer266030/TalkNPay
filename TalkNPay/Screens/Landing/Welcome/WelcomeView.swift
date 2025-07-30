@@ -92,14 +92,6 @@ struct WelcomeView: View {
             .onAppear { animate = true }
             .onDisappear { animate = false }
         }
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Text("Talk N Pay")
-                    .font(.title)
-                    .font(.headline)
-                    .fontWeight(.semibold)
-            }
-        }
     }
 }
 

@@ -22,5 +22,15 @@ class HomeVM {
         x.navMgr.push(.bills)
     }
     
+    @MainActor
+    func navigateToTransactions() {
+        x.navMgr.push(.transactions)
+    }
+    
+    @MainActor
+    func navigateToTransactionDetails(transaction: Transaction) {
+        x.navMgr.push(.transactionDetails(transaction: transaction))
+    }
+    
 }
 

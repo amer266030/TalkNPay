@@ -12,14 +12,22 @@ struct SplashView: View {
     @StateObject var vm = SplashVM()
     
     var body: some View {
-        Text("Splash")
-            .onAppear {
-                if x.navMgr.path.count == 0 {
-                    Task {
-                        try? await Task.sleep(nanoseconds: 2 * 1_000_000_000)
-                        vm.navigateToNextScreen()
-                    }
-                }
+        ZStack {
+            ContainerRelativeShape()
+                .fill(LinearGradient.bg)
+                .ignoresSafeArea()
+            
+            VStack {
+                Text("Splash")
+                    .foregroundStyle(.white)
             }
+            
+        }
+        .onAppear {
+            Task {
+                try? await Task.sleep(nanoseconds: 2 * 1_000_000_000)
+                vm.navigateToNextScreen()
+            }
+        }
     }
 }

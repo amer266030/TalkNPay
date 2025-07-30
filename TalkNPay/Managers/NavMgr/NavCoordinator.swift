@@ -29,9 +29,10 @@ struct NavigationCoordinator: View {
         case .welcome: WelcomeView()
         case .home: HomeView()
         case .bills: BillsView()
-        case .billDetails(let bill): BillDetailsView(vm: BillDetailsVM(bill: bill))
-        case .paymentConfirmation: PaymentConfirmationView()
+        case .billDetails(let bill, let provider): BillDetailsView(vm: BillDetailsVM(bill: bill, provider: provider))
+        case .paymentConfirmation(let bill): PaymentConfirmationView(vm: PaymentConfirmationVM(bill: bill))
         case .transactions: TransactionsView()
+        case .transactionDetails(let transaction): TransactionDetailsView(vm: TransactionDetailsVM(transaction: transaction))
         }
     }
 }

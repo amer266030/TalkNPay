@@ -13,7 +13,8 @@ enum AppRoute: Hashable {
     case welcome
     case home
     case bills
-    case billDetails(bill: Bill)
-    case paymentConfirmation
+    case billDetails(bill: Bill, provider: BillProvider? = nil)
+    case paymentConfirmation(bill: Bill)
     case transactions
+    case transactionDetails(transaction: Transaction)
 }

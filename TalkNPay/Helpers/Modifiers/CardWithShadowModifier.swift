@@ -13,8 +13,12 @@ struct CardWithShadowModifier: ViewModifier {
             .padding()
             .background(
                 RoundedRectangle(cornerRadius: 8)
-                    .fill(Color.white)
-                    .shadow(color: Color.gray.opacity(0.3), radius: 2)
+                    .fill(
+                        Color.white
+                            .shadow(.inner(color: .black.opacity(0.3), radius: 1, x: -1, y: -1))
+                            .shadow(.inner(color: .white.opacity(0.3), radius: 2, x: 1, y: 1))
+                    )
+                    .shadow(color: Color.black.opacity(0.1), radius: 2, x: -1, y: -1)
             )
     }
 }

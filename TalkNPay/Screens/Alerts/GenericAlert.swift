@@ -10,6 +10,7 @@ import SwiftUI
 enum GenericAlert: AppAlert {
     case paymentedSuccess
     case paymentFailed
+    case billAlreadyPaid
     
     var iconName: String { "info.rectangle" }
     var iconColor: Color {
@@ -22,6 +23,7 @@ enum GenericAlert: AppAlert {
     var title: LocalizedStringKey {
         switch self {
         case .paymentedSuccess, .paymentFailed: "Payment"
+        case .billAlreadyPaid: "Payment Status"
         }
     }
     var titleColor: Color { .red }
@@ -30,6 +32,7 @@ enum GenericAlert: AppAlert {
         switch self {
         case .paymentedSuccess: "Payment Successful"
         case .paymentFailed: "Payment Failed"
+        case .billAlreadyPaid: "This bill is already paid"
         }
     }
     

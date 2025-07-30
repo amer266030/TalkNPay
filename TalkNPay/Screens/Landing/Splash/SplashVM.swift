@@ -12,9 +12,11 @@ class SplashVM: ObservableObject {
     
     @MainActor
     func navigateToNextScreen() {
-        Task {
-            try? await Task.sleep(nanoseconds: 500_000)
-            x.navMgr.replaceWith(.home)
+        Task { try? await Task.sleep(nanoseconds: 500_000) }
+        Task { @MainActor in
+            if x.navMgr.path.count == 0 {
+                x.navMgr.replaceWith(.welcome)
+            }
         }
     }
 }
