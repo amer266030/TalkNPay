@@ -20,8 +20,8 @@ struct StatusChipView: View {
         }
         .font(.caption)
         .bold()
-        .padding(.vertical, 8)
-        .padding(.horizontal, 16)
+        .padding(.vertical, 4)
+        .padding(.horizontal, 8)
         .foregroundStyle(foregroundColor)
         .background(backgroundColor, in: Capsule())
         .background {

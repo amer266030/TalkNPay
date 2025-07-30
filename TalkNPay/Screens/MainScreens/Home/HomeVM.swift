@@ -10,6 +10,12 @@ import Observation
 @Observable
 class HomeVM {
     private let x = DIContainer.shared
+    var transactions: [Transaction] = []
+    
+    @MainActor
+    func fetchTransactions() async {
+        transactions = x.mockData.transactions.list
+    }
     
     @MainActor
     func navigateToBills() {

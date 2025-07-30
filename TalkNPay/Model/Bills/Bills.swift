@@ -10,6 +10,6 @@ import Foundation
 typealias GetBillsRequest = EmptyData
 typealias GetBillsResponse = Bills
 
-struct Bills {
+struct Bills: Codable {
     var list: [Bill]
 }

@@ -28,10 +28,10 @@ struct NavigationCoordinator: View {
         case .splash: SplashView()
         case .welcome: WelcomeView()
         case .home: HomeView()
-        case .bills: EmptyView()
-        case .billDetails: EmptyView()
-        case .paymentConfirmation: EmptyView()
-        case .transactions: EmptyView()
+        case .bills: BillsView()
+        case .billDetails: BillDetailsView()
+        case .paymentConfirmation: PaymentConfirmationView()
+        case .transactions: TransactionsView()
         }
     }
 }
