@@ -17,5 +17,8 @@ class DIContainer {
     lazy var popupMgr = PopupMgr.shared
     lazy var mockData = MockData.shared
     
+    lazy var notifications = NotificationMgr.shared
+    lazy var storage = AppStorageMgr.shared
+    
 //    lazy var nwkMgr = NetworkMgr.shared
 }

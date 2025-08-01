@@ -33,6 +33,7 @@ struct NavigationCoordinator: View {
         case .paymentConfirmation(let bill): PaymentConfirmationView(vm: PaymentConfirmationVM(bill: bill))
         case .transactions: TransactionsView()
         case .transactionDetails(let transaction): TransactionDetailsView(vm: TransactionDetailsVM(transaction: transaction))
+        case .securitySetup: SecuritySetupView()
         }
     }
 }

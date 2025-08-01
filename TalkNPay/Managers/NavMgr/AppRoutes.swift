@@ -17,4 +17,5 @@ enum AppRoute: Hashable {
     case paymentConfirmation(bill: Bill)
     case transactions
     case transactionDetails(transaction: Transaction)
+    case securitySetup
 }
