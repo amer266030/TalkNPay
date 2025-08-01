@@ -11,10 +11,18 @@ import Observation
 class HomeVM {
     private let x = DIContainer.shared
     var transactions: [Transaction] = []
+    var bills: [Bill] = []
+    
+    var unpaidBills: [Bill] { bills.filter( {$0.paymentStatus != .completed }) }
     
     @MainActor
     func fetchTransactions() async {
         transactions = x.mockData.transactions.list
+    }
+    
+    @MainActor
+    func fetchBills() async {
+        bills = x.mockData.bills.list
     }
     
     @MainActor

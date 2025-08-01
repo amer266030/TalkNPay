@@ -15,12 +15,9 @@ struct HomeView: View {
             BGView()
             
             VStack(alignment: .leading, spacing: 24) {
-                Text("Welcome back!")
-                    .font(.title2)
-                    .fontWeight(.medium)
-                
                 List {
                     Group {
+//                        BillChartView(vm: vm)
                         UnpaidBillsSectionView(vm: vm)
                         RecentTransactionsSectionView(vm: vm)
                     }
@@ -29,9 +26,13 @@ struct HomeView: View {
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
                 }
                 .listStyle(.plain)
+                .scrollIndicators(.hidden)
             }
             .padding(24)
-            .onAppear { Task { await vm.fetchTransactions() } }
+            .onAppear { Task {
+                await vm.fetchTransactions()
+                await vm.fetchBills()
+            }}
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {

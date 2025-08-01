@@ -53,7 +53,7 @@ class BillDetailsVM {
     
     @MainActor
     func completePayment() {
-        bill.isPaid = true
+        bill.paymentStatus = .completed
         
         let transaction = Transaction(
             id: UUID(),

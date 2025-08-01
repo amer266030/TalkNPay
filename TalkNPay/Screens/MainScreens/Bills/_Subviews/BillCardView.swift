@@ -15,15 +15,15 @@ struct BillCardView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
-                Text(bill.provider)
+                Text(bill.provider.name)
                     .font(.subheadline)
                     .fontWeight(.semibold)
                 
                 Spacer()
                 
                 StatusChipView(
-                    title: bill.isPaid ? "Paid" : "Unpaid",
-                    foregroundColor: bill.isPaid ? .darkPurple : .red
+                    title: bill.paymentStatus.strValue,
+                    foregroundColor: bill.paymentStatus.color
                 )
             }
             
@@ -40,7 +40,7 @@ struct BillCardView: View {
                 }
             }
             
-            if !bill.isPaid {
+            if bill.paymentStatus != .completed {
                 Button {
                     action()
                 } label: {

@@ -13,6 +13,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             NavigationCoordinator()
+                .foregroundStyle(.white)
                 .allowsHitTesting(popupMgr.isPopupVisible ? false : true)
                 .overlay {
                     Color.black.opacity(popupMgr.isPopupVisible ? 0.5 : 0)

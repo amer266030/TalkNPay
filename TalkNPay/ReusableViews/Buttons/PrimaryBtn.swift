@@ -11,8 +11,8 @@ struct PrimaryBtn: View {
     @State private var animate: Bool = false
     
     var title: LocalizedStringKey
-    var backgroundColor: AnyGradient = Color.blue.gradient
-    var foregroundColor: Color = Color.white
+    var backgroundColor: AnyGradient = Color.bk4.gradient
+    var foregroundColor: Color = Color.y2
     var borderColor: Color = .clear
     var animation: Animation = .easeOut(duration: 0.5)
     var isEnabled: Bool = true
@@ -25,10 +25,11 @@ struct PrimaryBtn: View {
             HStack {
                 HStack {
                     Text(title)
+                        .fontWeight(.semibold)
                         .lineLimit(1)
                         .minimumScaleFactor(0.7)
                 }
-                .padding(.vertical, 16)
+                .padding(.vertical, 24)
                 .padding(.horizontal, 32)
             }
             .opacity(animate ? 1 : 0)

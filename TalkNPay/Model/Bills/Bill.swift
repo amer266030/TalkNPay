@@ -9,11 +9,10 @@ import Foundation
 
 struct Bill: Identifiable, Codable, Equatable, Hashable {
     let id: UUID
-    let provider: String
+    let provider: BillProvider
     let accountNumber: String
     let description: String
     let amount: Double
     let dueDate: Date
-    var isPaid: Bool
+    var paymentStatus: PaymentStatus
 }
-

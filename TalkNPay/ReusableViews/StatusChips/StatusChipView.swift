@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StatusChipView: View {
-    var title: LocalizedStringKey
+    var title: String
     var foregroundColor: Color
     var backgroundColor: Color = .white
     

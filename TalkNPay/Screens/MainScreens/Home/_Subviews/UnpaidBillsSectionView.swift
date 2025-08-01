@@ -12,9 +12,11 @@ struct UnpaidBillsSectionView: View {
     
     var body: some View {
         Section("Unpaid Bills") {
-            if let recentTransaction = vm.transactions.first {
-                UnpaidBillCardView(transaction: recentTransaction) {
-                    vm.navigateToBills()
+            if !vm.unpaidBills.isEmpty {
+                ForEach(vm.unpaidBills) { bill in
+                    UnpaidBillCardView(bill: bill) {
+                        vm.navigateToBills()
+                    }
                 }
             } else {
                 Button {

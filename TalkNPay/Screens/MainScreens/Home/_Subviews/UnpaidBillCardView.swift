@@ -8,35 +8,38 @@
 import SwiftUI
 
 struct UnpaidBillCardView: View {
-    var transaction: Transaction
+    var bill: Bill
     var action: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("You have 1 unpaid bill")
-                .font(.headline)
-            
-            HStack(spacing: 4) {
-                Text("Last payment:")
-                CurrencyView(amount: transaction.amount, font: .subheadline)
-                    .foregroundStyle(.darkPurple)
-                Text("to \(transaction.provider)")
-                Spacer()
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(spacing: 4) {
+                    Text("To \(bill.provider.name),")
+                    Text("For the amount of")
+                    CurrencyView(amount: bill.amount, font: .subheadline)
+                        .foregroundStyle(.y4)
+                    Spacer()
+                }
+                
+                HStack {
+                    Text("Due: \(bill.dueDate.formatted(.dateTime.month().day()))")
+                    Spacer()
+                    Button {
+                        action()
+                    } label: {
+                        HStack {
+                            Text("View Bill")
+                            Image(systemName: "arrow.right.circle")
+                        }
+                        .font(.footnote)
+                        .foregroundStyle(.y1)
+                    }
+                }
             }
             .fontWidth(.condensed)
             .font(.subheadline)
-            .foregroundStyle(.gray)
-            
-            Button {
-                action()
-            } label: {
-                Label("View Bills", systemImage: "doc.plaintext")
-                    .font(.callout)
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
-                    .foregroundStyle(.white)
-                    .background(.blue, in: .rect(cornerRadius: 8))
-            }
+            .foregroundStyle(.white)
         }
         .cardWithShadow()
     }

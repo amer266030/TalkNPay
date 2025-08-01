@@ -24,7 +24,7 @@ struct TalkNPayApp: App {
                     
                     print("components correct")
                     
-                    if let bill = x.mockData.bills.list.first(where: { $0.provider == provider.name }) {
+                    if let bill = x.mockData.bills.list.first(where: { $0.provider.name == provider.name }) {
                         print("found bill")
                         Task {
                             try? await Task.sleep(nanoseconds: 500_000_000)

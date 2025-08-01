@@ -10,7 +10,7 @@ import SwiftUI
 struct BGView: View {
     var body: some View {
         ContainerRelativeShape()
-            .fill(.white.gradient)
+            .fill(LinearGradient.bg)
             .ignoresSafeArea()
     }
 }

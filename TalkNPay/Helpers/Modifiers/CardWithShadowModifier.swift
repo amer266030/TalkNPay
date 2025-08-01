@@ -14,7 +14,7 @@ struct CardWithShadowModifier: ViewModifier {
             .background(
                 RoundedRectangle(cornerRadius: 8)
                     .fill(
-                        Color.white
+                        Color.bk4.gradient
                             .shadow(.inner(color: .black.opacity(0.3), radius: 1, x: -1, y: -1))
                             .shadow(.inner(color: .white.opacity(0.3), radius: 2, x: 1, y: 1))
                     )

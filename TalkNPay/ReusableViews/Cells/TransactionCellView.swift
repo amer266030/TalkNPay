@@ -17,7 +17,7 @@ struct TransactionCellView: View {
         } label: {
             VStack(alignment: .leading, spacing: 16) {
                 HStack {
-                    Text(transaction.provider)
+                    Text(transaction.provider.name)
                         .font(.subheadline)
                         .fontWeight(.semibold)
                     

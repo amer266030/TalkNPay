@@ -8,14 +8,22 @@
 import SwiftUI
 
 enum PaymentStatus: String, Codable, Identifiable, CaseIterable {
-    case pending, completed, failed
+    case completed, pending, failed
     
     var id: String { self.rawValue }
     
+    var strValue: String {
+        switch self {
+        case .completed: "Completed"
+        case .pending: "Pending"
+        case .failed: "Failed"
+        }
+    }
+    
     var color: Color {
         switch self {
-        case .pending: Color.darkIndigo
-        case .completed: Color.darkPurple
+        case .completed: Color.green
+        case .pending: Color.y4
         case .failed: Color.red
         }
     }

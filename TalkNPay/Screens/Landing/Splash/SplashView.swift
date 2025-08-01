@@ -13,21 +13,19 @@ struct SplashView: View {
     
     var body: some View {
         ZStack {
-            ContainerRelativeShape()
-                .fill(LinearGradient.bg)
-                .ignoresSafeArea()
+            BGView()
             
-            VStack {
-                Text("Splash")
-                    .foregroundStyle(.white)
-            }
-            
+            LogoView()
         }
         .onAppear {
             Task {
-                try? await Task.sleep(nanoseconds: 2 * 1_000_000_000)
+                try? await Task.sleep(nanoseconds: 4 * 1_000_000_000)
                 vm.navigateToNextScreen()
             }
         }
     }
+}
+
+#Preview {
+    ContentView()
 }

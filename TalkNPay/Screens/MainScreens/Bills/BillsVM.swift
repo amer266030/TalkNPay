@@ -12,8 +12,8 @@ class BillsVM {
     private let x = DIContainer.shared
     
     var bills: [Bill] = []
-    var unpaidBills: [Bill] { bills.filter { !$0.isPaid } }
-    var paidBills: [Bill] { bills.filter { $0.isPaid } }
+    var unpaidBills: [Bill] { bills.filter { $0.paymentStatus != .completed } }
+    var paidBills: [Bill] { bills.filter { $0.paymentStatus == .completed } }
     
     @MainActor
     func loadBills() async {

@@ -11,32 +11,32 @@ extension MockData {
     func fetchBills() -> Bills {
         let bill1 = Bill(
             id: UUID(),
-            provider: "Telecom",
+            provider: .telecom,
             accountNumber: "1234567890",
             description: "Internet Bill - November",
             amount: 120.50,
             dueDate: Calendar.current.date(byAdding: .day, value: 5, to: Date())!,
-            isPaid: false
+            paymentStatus: .failed
         )
         
         let bill2 = Bill(
             id: UUID(),
-            provider: "Water",
+            provider: .water,
             accountNumber: "0987654321",
             description: "Water Bill - November",
             amount: 199.99,
             dueDate: Calendar.current.date(byAdding: .day, value: 10, to: Date())!,
-            isPaid: false
+            paymentStatus: .pending
         )
         
         let bill3 = Bill(
             id: UUID(),
-            provider: "Electricity",
+            provider: .electricity,
             accountNumber: "0987654333",
             description: "Electric Bill - November",
             amount: 199.99,
             dueDate: Calendar.current.date(byAdding: .day, value: 10, to: Date())!,
-            isPaid: true
+            paymentStatus: .completed
         )
         
         return Bills(list: [bill1, bill2, bill3])

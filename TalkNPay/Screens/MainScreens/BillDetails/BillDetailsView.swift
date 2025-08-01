@@ -19,15 +19,15 @@ struct BillDetailsView: View {
                 VStack(alignment: .leading, spacing: 24) {
                     VStack(alignment: .leading, spacing: 16) {
                         HStack {
-                            Text(vm.bill.provider)
+                            Text(vm.bill.provider.name)
                                 .font(.title3)
                                 .fontWeight(.semibold)
                             
                             Spacer()
                             
                             StatusChipView(
-                                title: vm.bill.isPaid ? "Paid" : "Unpaid",
-                                foregroundColor: vm.bill.isPaid ? .darkPurple : .red
+                                title: vm.bill.paymentStatus.strValue,
+                                foregroundColor: vm.bill.paymentStatus.color
                             )
                         }
                         
@@ -44,13 +44,11 @@ struct BillDetailsView: View {
                     }
                     .cardWithShadow()
                     
-                    if !vm.bill.isPaid {
-                        PrimaryBtn(title: "Pay Now") {
-                            if vm.bill.isPaid == true {
-                                vm.showBillPaidAlert()
-                            } else {
-                                Task { await vm.initiatePayment() }
-                            }
+                    PrimaryBtn(title: "Pay Now") {
+                        if vm.bill.paymentStatus == .completed {
+                            vm.showBillPaidAlert()
+                        } else {
+                            Task { await vm.initiatePayment() }
                         }
                     }
                 }
@@ -59,7 +57,7 @@ struct BillDetailsView: View {
         }
         .onAppear {
             if vm.provider != nil && !hasStartedPayment {
-                if vm.bill.isPaid == true {
+                if vm.bill.paymentStatus == .completed {
                     vm.showBillPaidAlert()
                 } else {
                     hasStartedPayment = true

@@ -29,7 +29,7 @@ struct TransactionDetailsView: View {
                 .cardWithShadow()
                 
                 VStack(alignment: .leading, spacing: 16) {
-                    LabeledRow(label: "Provider", value: Text(vm.transaction.provider))
+                    LabeledRow(label: "Provider", value: Text(vm.transaction.provider.name))
                     LabeledRow(label: "Amount", value: CurrencyView(amount: vm.transaction.amount, font: .callout))
                     LabeledRow(label: "Paid At", value: Text(vm.transaction.paidAt.formatted(.dateTime.month().day().year().hour().minute())))
                     LabeledRow(label: "Confirmation", value: Text(vm.transaction.confirmationNumber).monospaced())
