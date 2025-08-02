@@ -1,6 +1,6 @@
 # TalkNPay
 
-TalkNPay is an innovative iOS application that demonstrates the use of **Siri Shortcuts**, **App Intents**, and **deep linking** to simulate a voice-based bill payment experience. Users can initiate bill payments using Siri voice commands, respond to a security question, and complete the payment securely via biometric authentication inside the app.
+TalkNPay is an innovative iOS application that demonstrates the use of **Siri Shortcuts**, **App Intents**, and **deep linking** to simulate a voice-based bill payment experience. Users can initiate bill payments using Siri voice commands, and complete the payment securely via biometric authentication inside the app.
 
 This MVP focuses on delivering a clean, presentable, and voice-driven demo experience without compromising basic security. It serves as a proof-of-concept for future enhancements like secure backend validation and voice biometrics.
 
