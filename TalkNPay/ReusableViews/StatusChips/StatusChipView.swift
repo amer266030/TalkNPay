@@ -10,7 +10,7 @@ import SwiftUI
 struct StatusChipView: View {
     var title: String
     var foregroundColor: Color
-    var backgroundColor: Color = .white
+    var backgroundColor: Color = .clear
     
     var body: some View {
         HStack(spacing: 8) {

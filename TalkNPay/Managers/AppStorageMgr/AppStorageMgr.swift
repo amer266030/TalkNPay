@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppStorageMgr {
     static let shared = AppStorageMgr()
+    @AppStorage("didSetupSecurity") var didSetupSecurity: Bool = false
     
     @AppStorage("Q1") var q1: String = ""
     @AppStorage("Q2") var q2: String = ""
@@ -17,4 +18,13 @@ struct AppStorageMgr {
     @AppStorage("Q5") var q5: String = ""
     
     private init() {}
+    
+    func storeAnswers(with answers: [String: String]) {
+        q1 = answers["Q1"] ?? ""
+        q2 = answers["Q2"] ?? ""
+        q3 = answers["Q3"] ?? ""
+        q4 = answers["Q4"] ?? ""
+        q5 = answers["Q5"] ?? ""
+        didSetupSecurity = true
+    }
 }

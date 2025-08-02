@@ -18,7 +18,8 @@ struct BillDetailsView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     VStack(alignment: .leading, spacing: 16) {
-                        HStack {
+                        HStack(alignment: .firstTextBaseline, spacing: 8) {
+                            Image(systemName: vm.bill.provider.icon)
                             Text(vm.bill.provider.name)
                                 .font(.title3)
                                 .fontWeight(.semibold)
@@ -31,16 +32,16 @@ struct BillDetailsView: View {
                             )
                         }
                         
-                        Text(vm.bill.description)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
-                    .cardWithShadow()
-                    
-                    VStack(alignment: .leading, spacing: 12) {
-                        LabeledRow(label: "Account Number", value: Text(vm.bill.accountNumber))
-                        LabeledRow(label: "Amount", value: CurrencyView(amount: vm.bill.amount, font: .footnote))
-                        LabeledRow(label: "Due Date", value: Text(vm.bill.dueDate.formatted(.dateTime.month().day().year())))
+                        Divider()
+                            .background(.y4)
+                            .frame(height: 1)
+                        
+                        VStack(alignment: .leading, spacing: 12) {
+                            LabeledRow(label: "Account Number", value: Text(vm.bill.accountNumber))
+                            LabeledRow(label: "Amount", value: CurrencyView(amount: vm.bill.amount, font: .footnote))
+                            LabeledRow(label: "Due Date", value: Text(vm.bill.dueDate.formatted(.dateTime.month().day().year())))
+                            LabeledRow(label: "Description", value: Text(vm.bill.description))
+                        }
                     }
                     .cardWithShadow()
                     

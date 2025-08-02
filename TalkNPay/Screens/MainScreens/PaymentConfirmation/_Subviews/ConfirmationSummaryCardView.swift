@@ -12,9 +12,9 @@ struct ConfirmationSummaryCardView: View {
     
     var body: some View {
         VStack(spacing: 16) {
-            Image(systemName: "checkmark.circle.fill")
+            Image(systemName: "checkmark.circle")
                 .font(.system(size: 64))
-                .foregroundStyle(.green)
+                .foregroundStyle(.y1)
             
             Text("Payment Successful")
                 .font(.title2)
@@ -24,7 +24,7 @@ struct ConfirmationSummaryCardView: View {
             Text("Your payment to \(vm.bill.provider) was processed successfully.")
                 .font(.subheadline)
                 .multilineTextAlignment(.center)
-                .foregroundStyle(.gray)
+                .foregroundStyle(.y4)
         }
         .frame(maxWidth: .infinity)
         .padding()

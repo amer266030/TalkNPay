@@ -10,10 +10,14 @@ import Observation
 @Observable
 class HomeVM {
     private let x = DIContainer.shared
+    var didSetupSecrity = false
+    
     var transactions: [Transaction] = []
     var bills: [Bill] = []
     
     var unpaidBills: [Bill] { bills.filter( {$0.paymentStatus != .completed }) }
+    
+    // MARK: - API Calls
     
     @MainActor
     func fetchTransactions() async {
@@ -25,9 +29,21 @@ class HomeVM {
         bills = x.mockData.bills.list
     }
     
+    // MARK: - Navigation
+    
+    @MainActor
+    func navigateToSecurityQuestions() {
+        x.navMgr.replaceWith(.securitySetup)
+    }
+    
     @MainActor
     func navigateToBills() {
         x.navMgr.push(.bills)
+    }
+    
+    @MainActor
+    func navigateToBillDetails(bill: Bill) {
+        x.navMgr.push(.billDetails(bill: bill))
     }
     
     @MainActor

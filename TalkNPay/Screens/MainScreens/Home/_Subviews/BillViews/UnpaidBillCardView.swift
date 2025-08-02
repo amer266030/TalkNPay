@@ -1,5 +1,5 @@
 //
-//  TransactionCellView.swift
+//  UnpaidBillCardView.swift
 //  TalkNPay
 //
 //  Created by Amer Alyusuf on 30/07/2025.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct TransactionCellView: View {
-    var transaction: Transaction
+struct UnpaidBillCardView: View {
+    var bill: Bill
     var action: () -> Void
     
     var body: some View {
@@ -17,18 +17,18 @@ struct TransactionCellView: View {
         } label: {
             VStack(alignment: .leading, spacing: 8) {
                 HStack(alignment: .firstTextBaseline) {
-                    Image(systemName: transaction.provider.icon)
-                        .foregroundStyle(.green)
-                    Text(transaction.provider.name)
+                    Image(systemName: bill.provider.icon)
+                        .foregroundStyle(bill.paymentStatus.color)
+                    Text(bill.provider.name)
                         
                     Spacer()
-                    CurrencyView(amount: transaction.amount, font: .footnote)
+                    CurrencyView(amount: bill.amount, font: .footnote)
                 }
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 
                 HStack(spacing: 4) {
-                    Text(transaction.paidAt.formatted(date: .abbreviated, time: .omitted))
+                    Text(bill.dueDate.formatted(date: .abbreviated, time: .omitted))
                     Spacer()
                     HStack {
                         Text("Details")
@@ -45,10 +45,3 @@ struct TransactionCellView: View {
         .buttonStyle(.plain)
     }
 }
-
-//#Preview {
-//    let x = DIContainer.shared
-//    
-//    TransactionCellView(transaction: x.mockData.transactions.list.first!) {}
-//        .padding()
-//}

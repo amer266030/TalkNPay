@@ -8,8 +8,6 @@
 import AppIntents
 import UIKit
 
-import AppIntents
-
 struct PayBillIntent: ForegroundContinuableIntent {
     static var title: LocalizedStringResource = "Pay Bill"
     static var openAppWhenRun: Bool = false

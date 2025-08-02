@@ -17,15 +17,17 @@ struct LabeledRow<Content: View>: View {
     }
 
     var body: some View {
-        HStack {
+        HStack(spacing: 8) {
             Text(label)
-                .font(.caption)
-                .foregroundStyle(.gray)
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
             Spacer()
             value
-                .font(.footnote)
                 .fontWeight(.medium)
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
         }
+        .font(.footnote)
     }
 }
 

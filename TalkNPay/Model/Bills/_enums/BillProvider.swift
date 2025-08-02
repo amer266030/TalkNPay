@@ -34,4 +34,12 @@ enum BillProvider: String, Codable, AppEnum {
         .water: "Water",
         .electricity: "Electricity"
     ]
+    
+    static var caseSynonyms: [Self: [String]] {
+        [
+            .water: ["Water", "Water bill", "Water service"],
+            .electricity: ["Electric", "Electricity bill", "Power"],
+            .telecom: ["Telecom", "Telecom bill", "Phone"]
+        ]
+    }
 }

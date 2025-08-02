@@ -14,7 +14,6 @@ struct SplashView: View {
     var body: some View {
         ZStack {
             BGView()
-            
             LogoView()
         }
         .onAppear {

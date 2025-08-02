@@ -271,7 +271,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TalkNPay/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Talk N Payy";
+				INFOPLIST_KEY_CFBundleDisplayName = "Talk N Pay";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app requires Face ID for the payment feature";
 				INFOPLIST_KEY_NSSiriUsageDescription = "This app requires Siri access for voice commands";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -306,7 +306,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TalkNPay/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Talk N Payy";
+				INFOPLIST_KEY_CFBundleDisplayName = "Talk N Pay";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app requires Face ID for the payment feature";
 				INFOPLIST_KEY_NSSiriUsageDescription = "This app requires Siri access for voice commands";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

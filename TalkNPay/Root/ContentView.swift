@@ -26,7 +26,7 @@ struct ContentView: View {
                 AlertView()
             }
         }
-        .preferredColorScheme(.light)
+        .preferredColorScheme(.dark)
         .languageModifier()
     }
 }

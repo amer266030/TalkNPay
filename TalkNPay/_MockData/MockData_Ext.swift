@@ -56,15 +56,25 @@ extension MockData {
     }
     
     func fetchTransactions() -> Transactions {
-        let transaction = Transaction(
-            id: UUID(),
-            paymentId: payments.list[0].id,
-            provider: bills.list[1].provider,
-            amount: bills.list[1].amount,
-            paidAt: payments.list[0].date,
-            confirmationNumber: "CONF-983472"
-        )
+        let transactions = [
+            Transaction(
+                id: UUID(),
+                paymentId: payments.list[0].id,
+                provider: bills.list[1].provider,
+                amount: bills.list[1].amount,
+                paidAt: Calendar.current.date(byAdding: .day, value: -5, to: Date())!,
+                confirmationNumber: "CONF-983472"
+            ),
+            Transaction(
+                id: UUID(),
+                paymentId: payments.list[0].id,
+                provider: bills.list[0].provider,
+                amount: bills.list[0].amount,
+                paidAt: Calendar.current.date(byAdding: .day, value: -10, to: Date())!,
+                confirmationNumber: "CONF-983472"
+            ),
+        ]
         
-        return Transactions(list: [transaction])
+        return Transactions(list: transactions)
     }
 }

@@ -11,48 +11,32 @@ struct AlertView: View {
     @ObservedObject var popupMgr = PopupMgr.shared
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: 16) {
             
             HStack {
-                Spacer()
-                if popupMgr.alertCanBeDismissed {
-                    Button {
-                        popupMgr.dismissAppAlert()
-                    } label: {
-                        Image(systemName: "x.circle.fill")
-                            .font(.title3)
-                            .foregroundStyle(.blue)
-                    }
+                HStack {
+                    Image(systemName: "info.square")
+                        .foregroundStyle(popupMgr.alertIconColor)
+                    
+                    Text(popupMgr.alertTitle)
+                        .fontWeight(.medium)
+                    Spacer()
                 }
+                .font(.subheadline)
+                Spacer()
             }
-            .padding()
+            .padding(.horizontal)
+            
+            Divider()
+                .background(.y4)
+                .frame(height: 1)
             
             VStack(alignment: .leading, spacing: 24) {
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    HStack {
-                        Image(systemName: "info.square")
-                            .foregroundStyle(popupMgr.alertIconColor)
-                        
-                        Text(popupMgr.alertTitle)
-                            .foregroundStyle(.gray)
-                            .fontWeight(.medium)
-                        Spacer()
-                    }
-                    .font(.caption)
-                    
-                    Text(popupMgr.alertMsg)
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .lineLimit(6)
-                        .minimumScaleFactor(0.5)
-                        .environment(\.openURL, OpenURLAction { url in
-                            if url.absoluteString == "action://view-agreement" {
-                                NotificationCenter.default.post(name: Notification.Name("view-agreement"), object: nil)
-                            }
-                            return .handled
-                        })
-                }
+                Text(popupMgr.alertMsg)
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .lineLimit(6)
+                    .minimumScaleFactor(0.5)
                 
                 HStack {
                     if let secondaryTitle = popupMgr.alertSecondaryBtnTitle {
@@ -74,10 +58,11 @@ struct AlertView: View {
                         }
                 }
             }
-            .padding(.horizontal, 24)
-            .padding(.bottom, 32)
+            .padding(.horizontal, 16)
+            .padding(.bottom, 8)
         }
-        .background(Color.white.gradient, in: .rect(cornerRadius: 24))
+        .preferredColorScheme(.dark)
+        .cardWithShadow()
         .padding(.horizontal, 32)
     }
 }
@@ -87,19 +72,13 @@ struct AlertView: View {
     
     ZStack {
         ContainerRelativeShape()
-            .fill(Color.blue.gradient)
+            .fill(LinearGradient.bg)
             .ignoresSafeArea()
         
         AlertView()
             .onAppear {
                 popupMgr.alertTitle = "Error!"
-                var link: AttributedString {
-                    var result = AttributedString("View Agreement")
-                    result.foregroundColor = .blue
-                    result.underlineStyle = Text.LineStyle(pattern: .solid, color: .blue)
-                    result.link = URL(string: "action://view-agreement")
-                    return result
-                }
+                popupMgr.alertMsg = "Hello World!"
             }
     }
 }

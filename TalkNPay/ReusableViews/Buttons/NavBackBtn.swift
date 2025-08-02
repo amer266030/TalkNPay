@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NavBackBtn: View {
-    var foregroundColor: Color = .darkBlue
+    var foregroundColor: Color = .y1
     private let navMgr = NavigationMgr.shared
     
     var body: some View {

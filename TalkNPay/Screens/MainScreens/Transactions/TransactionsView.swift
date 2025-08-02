@@ -31,7 +31,7 @@ struct TransactionsView: View {
                             TransactionCellView(transaction: transaction) {
                                 vm.navigateToTransactionDetails(transaction: transaction)
                             }
-                            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
+                            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
                             .listRowSeparator(.hidden)
                             .listRowBackground(Color.clear)
                         }

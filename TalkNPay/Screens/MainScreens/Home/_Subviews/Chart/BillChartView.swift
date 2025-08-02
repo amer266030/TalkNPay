@@ -69,10 +69,11 @@ struct BillChartView: View {
                 }
             }
             .font(.caption)
-            .padding()
-            .background(.ultraThinMaterial, in: .rect(cornerRadius: 8))
+            .cardWithShadow()
             
             Divider()
+                .background(.y4)
+                .frame(height: 1)
         }
     }
     

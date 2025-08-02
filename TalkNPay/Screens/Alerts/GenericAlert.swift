@@ -8,6 +8,7 @@
 import SwiftUI
 
 enum GenericAlert: AppAlert {
+    case missingSecurityAnswer
     case paymentedSuccess
     case paymentFailed
     case billAlreadyPaid
@@ -22,6 +23,7 @@ enum GenericAlert: AppAlert {
 
     var title: LocalizedStringKey {
         switch self {
+        case .missingSecurityAnswer: "Error"
         case .paymentedSuccess, .paymentFailed: "Payment"
         case .billAlreadyPaid: "Payment Status"
         }
@@ -30,6 +32,7 @@ enum GenericAlert: AppAlert {
 
     var message: LocalizedStringKey {
         switch self {
+        case .missingSecurityAnswer: "You must provide an answer to all Questions to proceed"
         case .paymentedSuccess: "Payment Successful"
         case .paymentFailed: "Payment Failed"
         case .billAlreadyPaid: "This bill is already paid"

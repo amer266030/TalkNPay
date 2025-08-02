@@ -16,7 +16,8 @@ struct SecuritySetupView: View {
             ScrollView(.vertical) {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("You will be prompted to answer a random question when authorizing a voice payment. Please choose an answer for each.")
-                        .cardWithShadow()
+                        .foregroundStyle(.y4)
+                    
                     ForEach(vm.securityQuestions) { question in
                         CustomTextField(
                             title: question.question,
@@ -28,21 +29,19 @@ struct SecuritySetupView: View {
                     }
                     
                     PrimaryBtn(title: "Submit") {
-                        
+                        vm.SubmitSecuirtyAnswers()
                     }
+                    .padding(.top)
                 }
                 .padding(24)
             }
             
         }
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                NavBackBtn()
-            }
             ToolbarItem(placement: .principal) {
                 Text("Security Setup")
                     .font(.headline)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.white)
             }
         }
     }

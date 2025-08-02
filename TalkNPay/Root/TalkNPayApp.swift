@@ -29,7 +29,7 @@ struct TalkNPayApp: App {
                         Task {
                             try? await Task.sleep(nanoseconds: 500_000_000)
                             print("Navigating")
-                            x.navMgr.push(.billDetails(bill: bill, provider: provider))
+                            x.navMgr.replaceWith(.billDetails(bill: bill, provider: provider))
                         }
                     }
                 }

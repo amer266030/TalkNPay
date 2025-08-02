@@ -47,7 +47,7 @@ struct BillsView: View {
                                 }
                             }
                         }
-                        .listRowInsets(EdgeInsets())
+                        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0))
                         .listRowSeparator(.hidden)
                         .listRowBackground(Color.clear)
                     }

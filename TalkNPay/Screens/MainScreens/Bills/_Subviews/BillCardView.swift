@@ -13,50 +13,48 @@ struct BillCardView: View {
     var action: () -> Void
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            HStack {
-                Text(bill.provider.name)
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                
-                Spacer()
-                
-                StatusChipView(
-                    title: bill.paymentStatus.strValue,
-                    foregroundColor: bill.paymentStatus.color
-                )
-            }
-            
-            VStack(alignment: .leading, spacing: 8) {
-                Text(bill.description)
-                    .font(.footnote)
-                
-                HStack {
-                    CurrencyView(amount: bill.amount, font: .caption)
+        Button {
+            action()
+        } label: {
+            VStack(alignment: .leading, spacing: 16) {
+                HStack(alignment: .firstTextBaseline) {
+                    Text(bill.provider.name)
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                    
                     Spacer()
-                    Text("Due: \(bill.dueDate.formatted(.dateTime.month().day()))")
-                        .font(.caption2)
-                        .foregroundStyle(.gray)
+                    
+                    StatusChipView(
+                        title: bill.paymentStatus.strValue,
+                        foregroundColor: bill.paymentStatus.color
+                    )
+                }
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack {
+                        Text(bill.description.prefix(30))
+                            .fontWidth(.condensed)
+                            .font(.footnote)
+                        Spacer()
+                        CurrencyView(amount: bill.amount, font: .footnote)
+                    }
+                    if bill.paymentStatus != .completed {
+                        HStack {
+                            Text("Due: \(bill.dueDate.formatted(.dateTime.month().day()))")
+                                .font(.caption)
+                            Spacer()
+                            HStack {
+                                Text("Pay Now")
+                                Image(systemName: "arrow.right.circle")
+                            }
+                            .foregroundStyle(.y1)
+                        }
+                        .font(.footnote)
+                    }
                 }
             }
-            
-            if bill.paymentStatus != .completed {
-                Button {
-                    action()
-                } label: {
-                    Label("Pay Now", systemImage: "creditcard")
-                        .font(.caption)
-                        .padding(.horizontal)
-                        .padding(.vertical, 6)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.blue.opacity(0.8))
-                        )
-                        .foregroundStyle(.white)
-                }
-            }
+            .cardWithShadow()
         }
-        .cardWithShadow()
     }
 }
 

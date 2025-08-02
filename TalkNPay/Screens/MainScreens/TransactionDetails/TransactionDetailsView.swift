@@ -18,22 +18,24 @@ struct TransactionDetailsView: View {
                 VStack(spacing: 16) {
                     Image(systemName: "doc.text.magnifyingglass")
                         .font(.system(size: 48))
-                        .foregroundStyle(.darkPurple)
+                        .foregroundStyle(.y1)
                     
                     Text("Payment Details")
                         .font(.title3)
                         .fontWeight(.semibold)
+                    
+                    Divider()
+                        .background(.y4)
+                        .frame(height: 1)
+                    
+                    VStack(alignment: .leading, spacing: 16) {
+                        LabeledRow(label: "Provider", value: Text(vm.transaction.provider.name))
+                        LabeledRow(label: "Amount", value: CurrencyView(amount: vm.transaction.amount, font: .callout))
+                        LabeledRow(label: "Paid At", value: Text(vm.transaction.paidAt.formatted(.dateTime.month().day().year().hour().minute())))
+                        LabeledRow(label: "Confirmation", value: Text(vm.transaction.confirmationNumber).monospaced())
+                    }
                 }
                 .frame(maxWidth: .infinity)
-                .padding()
-                .cardWithShadow()
-                
-                VStack(alignment: .leading, spacing: 16) {
-                    LabeledRow(label: "Provider", value: Text(vm.transaction.provider.name))
-                    LabeledRow(label: "Amount", value: CurrencyView(amount: vm.transaction.amount, font: .callout))
-                    LabeledRow(label: "Paid At", value: Text(vm.transaction.paidAt.formatted(.dateTime.month().day().year().hour().minute())))
-                    LabeledRow(label: "Confirmation", value: Text(vm.transaction.confirmationNumber).monospaced())
-                }
                 .cardWithShadow()
             }
             .scrollIndicators(.hidden)

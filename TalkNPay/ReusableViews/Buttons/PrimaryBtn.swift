@@ -35,7 +35,10 @@ struct PrimaryBtn: View {
             .opacity(animate ? 1 : 0)
             .foregroundStyle(isEnabled ? foregroundColor : .gray)
             .frame(maxWidth: .infinity)
-            .background(backgroundColor, in: .capsule)
+            .background {
+                Capsule()
+                    .fill(backgroundColor.shadow(.inner(color: .y4, radius: 2, x: 0, y: 0)))
+            }
             .scaleEffect(animate ? 1 : 0.5)
             .animation(.bouncy(duration: 0.8, extraBounce: 0.3), value: animate)
             .onAppear { animate = true }

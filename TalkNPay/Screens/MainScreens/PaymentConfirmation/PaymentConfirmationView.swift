@@ -16,16 +16,16 @@ struct PaymentConfirmationView: View {
             
             VStack(alignment: .center, spacing: 32) {
                 ScrollView(.vertical) {
-                    VStack {
+                    VStack(alignment: .center, spacing: 16) {
                         ConfirmationSummaryCardView(vm: vm)
                         ConfirmationDetailCardView(vm: vm)
-                        PrimaryBtn(title: "Done") {
-                            vm.navigateToHome()
-                        }
                     }
-                    .padding(24)
+                }
+                PrimaryBtn(title: "Done") {
+                    vm.navigateToHome()
                 }
             }
+            .padding(24)
         }
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {

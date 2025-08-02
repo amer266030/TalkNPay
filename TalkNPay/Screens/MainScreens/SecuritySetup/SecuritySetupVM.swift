@@ -16,5 +16,24 @@ class SecuritySetupVM {
     ]
     
     let securityQuestions = SecurityQuestions.sampleQuestions
-
+    
+    init() {
+        answers = [
+            "Q1": x.storage.q1,
+            "Q2": x.storage.q2,
+            "Q3": x.storage.q3,
+            "Q4": x.storage.q4,
+            "Q5": x.storage.q5
+        ]
+    }
+    
+    @MainActor
+    func SubmitSecuirtyAnswers() {
+        if answers.values.contains("") {
+            x.popupMgr.showAppAlert(for: GenericAlert.missingSecurityAnswer)
+        } else {
+            x.storage.storeAnswers(with: answers)
+            x.navMgr.replaceWith(.home)
+        }
+    }
 }

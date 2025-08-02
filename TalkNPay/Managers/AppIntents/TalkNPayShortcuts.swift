@@ -13,8 +13,10 @@ struct TalkNPayShortcuts: AppShortcutsProvider {
             intent: PayBillIntent(),
             phrases: [
                 "Pay my \(\.$provider) bill with \(.applicationName)",
+                "Pay my \(\.$provider) bill using \(.applicationName)",
                 "Use \(.applicationName) to pay my \(\.$provider) bill",
-                "Make a payment to \(\.$provider) with \(.applicationName)"
+                "Make a payment to \(\.$provider) with \(.applicationName)",
+                "Make a payment to \(\.$provider) through \(.applicationName)"
             ],
             shortTitle: "Pay Bill",
             systemImageName: "creditcard"
